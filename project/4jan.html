@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="height: 500px;width: 500px;background:linear-gradient(to left, rgb(0, 255, 81), black);" id="res" onmouseenter="change('black','red')"  >
+
+    </div>
+    <button onclick="change('rgb(0, 255, 81)','red')" >1</button>
+    <button onclick="change('rgb(0, 255, 81)','aqua')" >2</button>
+    <button onclick="change('rgb(0, 255, 81)','red')" >3</button>
+    <button onclick="change('rgb(0, 255, 81)','red')" >4</button>
+    <button onclick="change('rgb(0, 255, 81)','red')" >5</button>
+</body>
+<script>
+    let res =document.getElementById("res")
+
+    function change(a,b) {
+        
+        `res.style=height: 500px;width: 500px;background:linear-gradient(to left, ${a}, ${b});`
+    }
+
+   
+</script>
+</html>

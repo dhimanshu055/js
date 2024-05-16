@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <div class="main">
+        <div class="box">
+            <h2 id="quesBox">This is a dummy question</h2>
+            <div class="row">
+                <input id="option1" type="radio" value="a" name="option">
+                <label for="option1">option 1</label>
+            </div>
+            <div class="row">
+                <input id="option2" type="radio" value="b" name="option">
+                <label for="option2">option 2</label>
+            </div>
+            <div class="row">
+                <input id="option3" type="radio" value="c" name="option">
+                <label for="option3">option 3</label>
+            </div>
+            <div class="row">
+                <input id="option4" type="radio" value="d" name="option">
+                <label for="option4">option 4</label>
+            </div>
+            <button class="btn" onclick="submitQuiz()">Submit</button>
+        </div>
+    </div>
+</body>
+<script src="quiz.js"></script>
+<script>
+    <!-- Updated JavaScript -->
+const questions = [
+{
+    'que1':'Which of the following is a markup language?',
+    'a':'HTML',
+    'b':'CSS',
+    'c':'JS',
+    'd':'PHP',
+    'correct':'a'
+},
+{
+    'que2':'Which of the following is a styling language?',
+    'a':'HTML',
+    'b':'CSS',
+    'c':'JS',
+    'd':'PHP',
+    'correct':'b'
+},
+{
+    'que3':'Which of the following is a scripting language?',
+    'a':'HTML',
+    'b':'CSS',
+    'c':'JS',
+    'd':'PHP',
+    'correct':'c'
+}
+];
+
+let index = 0;
+let total = questions.length;
+let right = 0;
+let wrong = 0;
+const quesBox = document.getElementById("quesBox");
+const optionInputs = document.querySelectorAll('.row input');
+
+const loadQuestion = () => {
+    if (index === total) {
+        return endQuiz();
+    }
+    const data = questions[index];
+    quesBox.innerHTML = `${index + 1}. ${data[`que${index + 1}`]}`;
+    optionInputs[0].nextElementSibling.innerHTML = data.a;
+    optionInputs[1].nextElementSibling.innerHTML = data.b;
+    optionInputs[2].nextElementSibling.innerHTML = data.c;
+    optionInputs[3].nextElementSibling.innerHTML = data.d;
+};
+
+const submitQuiz = () => {
+    const data = questions[index];
+    const selectedOption = getSelectedOption();
+    if (selectedOption === data.correct) {
+        right++;
+    } else {
+        wrong++;
+    }
+    index++;
+    loadQuestion();
+};
+
+const getSelectedOption = () => {
+    let selectedOption = '';
+    optionInputs.forEach((input) => {
+        if (input.checked) {
+            selectedOption = input.value;
+        }
+    });
+    return selectedOption;
+};
+
+const endQuiz = () => {
+    quesBox.innerHTML = `<h3>Thank you for playing the quiz</h3>
+                        <h2>${right}/${total} are correct</h2>`;
+};
+
+loadQuestion();
+
+</script>
+</html>

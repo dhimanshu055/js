@@ -1,0 +1,56 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+.main{
+    width: 100%;
+    height: 100vh;
+    background-image: url(pexels-photo-3617500.webp);
+    background-position: center;
+    background-size: cover;
+}
+.oveylay{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    
+    
+}
+
+.title{
+    margin-top: 10px;
+    font-size: 3.5rem;
+    text-align: center;
+    color: aqua;
+}
+.col{
+    margin-top: 20px;
+    width: 1000px;
+    
+    
+    margin:10px auto;
+    display: flex;
+    text-align: center;
+    color: rgb(10, 10, 11);
+}
+.col div{
+    width: 250px;
+    
+    text-align: center;
+}
+
+input{
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: transparent;
+    border-radius: 22px;
+    text-align: center;
+    height: 50px;
+    font-size: 35px;
+    color: rgb(255, 140, 0);
+}
